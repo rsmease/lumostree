@@ -1,5 +1,5 @@
 import {
-    fetchAllNodes,
+    fetchAllTreeNodes,
     postTreeNode,
     patchTreeNode
 } from '../rest-api/tree_nodes_api';
@@ -12,7 +12,18 @@ const receiveTreeNode = (treeNode) => ({
     treeNode
 });
 
-const receiveAllTreeNode = (treeNodes) => ({
+const receiveAllTreeNodes = (treeNodes) => ({
     type: RECEIVE_ALL_TREE_NODES,
     treeNodes
 });
+
+export const requestAllTreeNodes = () => (dispatch) => fetchAllTreeNodes()
+    .then(fetchedTreeNodes => dispatch(receiveAllTreeNodes(fetchedTreeNodes)));
+
+export const createNewTreeNode = (treeNode) => (dispatch) =>
+    postTreeNode(treeNode).then(createdTreeNode =>
+        dispatch(receitveTreeNode(treeNode)));
+
+export const requestUpdateToTreeNode = (treeNode) => (dispatch) =>
+    updateTreeNode(treeNode).then(updatedTreeNode =>
+        dispatch(receiveTreNode(updatedTreeNode)));

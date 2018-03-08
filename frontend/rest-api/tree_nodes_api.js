@@ -1,4 +1,4 @@
-export const fetchAllNodes = () => (
+export const fetchAllTreeNodes = () => (
     $.ajax({
         url: 'api/tree_nodes',
         method: 'GET'

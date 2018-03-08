@@ -6,6 +6,7 @@ import {
 import _ from 'lodash';
 
 export default (state = {}, action) => {
+    console.log(action)
     switch (action.type) {
         case RECEIVE_ALL_TREE_NODES:
             return _.merge({}, state, action.treeNodes)

@@ -956,17 +956,19 @@ var _provider = __webpack_require__(73);
 
 var _provider2 = _interopRequireDefault(_provider);
 
+var _tree_nodes_api = __webpack_require__(71);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//utils
 document.addEventListener('DOMContentLoaded', function () {
 
     var store = (0, _store2.default)();
     window.store = store;
+    window.fetchAllTreeNodes = _tree_nodes_api.fetchAllTreeNodes;
     //render components
     var root = document.getElementById('root');
     _reactDom2.default.render(_react2.default.createElement(_provider2.default, { store: store }), root);
-});
+}); //utils
 
 /***/ }),
 /* 15 */
@@ -18310,7 +18312,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
     return {
         requestAllTreeNodes: function requestAllTreeNodes() {
-            return dispatch(_tree_nodes_actions.requestAllTreeNodes);
+            return dispatch((0, _tree_nodes_actions.requestAllTreeNodes)());
         },
         requestToCreateTreeNode: function requestToCreateTreeNode(treeNode) {
             return dispatch((0, _tree_nodes_actions.requestUpdateToTreeNode)(treeNode));
@@ -21378,28 +21380,18 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(51);
 
+var _reduxThunk = __webpack_require__(78);
+
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
 var _root_reducer = __webpack_require__(74);
 
 var _root_reducer2 = _interopRequireDefault(_root_reducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var thunk = function thunk(_ref) {
-    var dispatch = _ref.dispatch,
-        getState = _ref.getState;
-    return function (next) {
-        return function (action) {
-            if (typeof action === 'function') {
-                return action(dispatch, getState);
-            } else {
-                return next(action);
-            }
-        };
-    };
-};
-
 exports.default = function () {
-    return (0, _redux.createStore)(_root_reducer2.default, (0, _redux.applyMiddleware)(thunk));
+    return (0, _redux.createStore)(_root_reducer2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default));
 };
 
 /***/ }),
@@ -21480,6 +21472,7 @@ exports.default = function () {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var action = arguments[1];
 
+    console.log(action);
     switch (action.type) {
         case _tree_nodes_actions.RECEIVE_ALL_TREE_NODES:
             return _lodash2.default.merge({}, state, action.treeNodes);
@@ -38622,6 +38615,35 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+function createThunkMiddleware(extraArgument) {
+  return function (_ref) {
+    var dispatch = _ref.dispatch,
+        getState = _ref.getState;
+    return function (next) {
+      return function (action) {
+        if (typeof action === 'function') {
+          return action(dispatch, getState, extraArgument);
+        }
+
+        return next(action);
+      };
+    };
+  };
+}
+
+var thunk = createThunkMiddleware();
+thunk.withExtraArgument = createThunkMiddleware;
+
+exports['default'] = thunk;
 
 /***/ })
 /******/ ]);

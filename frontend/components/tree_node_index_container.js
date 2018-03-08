@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    requestAllTreeNodes: () => dispatch(requestAllTreeNodes),
+    requestAllTreeNodes: () => dispatch(requestAllTreeNodes()),
     requestToCreateTreeNode: (treeNode) => dispatch(requestUpdateToTreeNode(treeNode)),
     requestUpdateToTreeNode: (treeNode) => dispatch(requestUpdateToTreeNode(treeNode))
 });

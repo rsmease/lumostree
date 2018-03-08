@@ -2,7 +2,7 @@ import React from 'react';
 
 class TreeNodeIndex extends React.Component {
     constructor() {
-        super(props);
+        super();
     }
 
     componentDidMount() {
@@ -11,8 +11,8 @@ class TreeNodeIndex extends React.Component {
 
     displayNodes() {
         if (this.props.treeNodes) {
-            this.props.treeNodes.map(treeNode =>
-                <div>{treeNode.body}</div>
+            Object.keys(this.props.treeNodes).map(treeNodeKey =>
+                <div>{this.props.treeNodes[treeNodeKey].body}</div>
             );
         } else {
             return <div></div>;

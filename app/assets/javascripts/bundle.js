@@ -19279,7 +19279,7 @@ var TreeNodeIndex = function (_React$Component) {
     function TreeNodeIndex() {
         _classCallCheck(this, TreeNodeIndex);
 
-        return _possibleConstructorReturn(this, (TreeNodeIndex.__proto__ || Object.getPrototypeOf(TreeNodeIndex)).call(this, props));
+        return _possibleConstructorReturn(this, (TreeNodeIndex.__proto__ || Object.getPrototypeOf(TreeNodeIndex)).call(this));
     }
 
     _createClass(TreeNodeIndex, [{
@@ -19290,12 +19290,14 @@ var TreeNodeIndex = function (_React$Component) {
     }, {
         key: 'displayNodes',
         value: function displayNodes() {
+            var _this2 = this;
+
             if (this.props.treeNodes) {
-                this.props.treeNodes.map(function (treeNode) {
+                Object.keys(this.props.treeNodes).map(function (treeNodeKey) {
                     return _react2.default.createElement(
                         'div',
                         null,
-                        treeNode.body
+                        _this2.props.treeNodes[treeNodeKey].body
                     );
                 });
             } else {

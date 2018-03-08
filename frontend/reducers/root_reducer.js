@@ -5,5 +5,5 @@ import {
 import treeNodesReducer from './tree_nodes_reducer';
 
 export default combineReducers({
-    tree_nodes: treeNodesReducer
+    treeNodes: treeNodesReducer
 });

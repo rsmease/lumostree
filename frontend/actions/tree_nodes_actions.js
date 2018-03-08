@@ -20,7 +20,7 @@ const receiveAllTreeNodes = (treeNodes) => ({
 export const requestAllTreeNodes = () => (dispatch) => fetchAllTreeNodes()
     .then(fetchedTreeNodes => dispatch(receiveAllTreeNodes(fetchedTreeNodes)));
 
-export const createNewTreeNode = (treeNode) => (dispatch) =>
+export const requestToCreateTreeNode = (treeNode) => (dispatch) =>
     postTreeNode(treeNode).then(createdTreeNode =>
         dispatch(receitveTreeNode(treeNode)));
 

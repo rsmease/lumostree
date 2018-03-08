@@ -2,6 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import TreeNodeIndexContainer from './components/tree_node_index_container';
+
 
 document.addEventListener('DOMContentLoaded', () => {
 

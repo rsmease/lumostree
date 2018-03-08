@@ -10,7 +10,6 @@ class TreeNodeIndex extends React.Component {
     }
 
     displayNodes() {
-        console.log(this.props.treeNodes)
         if (this.props.treeNodes.length) {
             return this.props.treeNodes.map(treeNode =>
                 <div key={treeNode.id}>{treeNode.body}</div>

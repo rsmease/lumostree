@@ -19298,7 +19298,6 @@ var TreeNodeIndex = function (_React$Component) {
     }, {
         key: 'displayNodes',
         value: function displayNodes() {
-            console.log(this.props.treeNodes);
             if (this.props.treeNodes.length) {
                 return this.props.treeNodes.map(function (treeNode) {
                     return _react2.default.createElement(

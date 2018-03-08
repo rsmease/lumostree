@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
+  root "react_bridge#root"
+
   #API namespace pattern that I've learned for passing JBuilder output to Redux action creators
   namespace :api, defaults: {format: JSON} do
 

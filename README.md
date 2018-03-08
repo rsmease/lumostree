@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Tool Set
 
-Things you may want to cover:
+- Core: React, Redux and Rails with PostgreSQL
+- Utils: Webpack, react-icons, Babel transpiler, lodash (see Redux reducers), $.ajax for REST calls
 
-* Ruby version
+## Database Schema
 
-* System dependencies
+- I really only need one model, I'm calling it TreeNode
+    - :parent_id for easy self-join model
+    - :body for node content, t.string instead of t.textarea to limit content length
+    - :parent_count because I plan to color the components based on their parent count, reducing the alpha as you recurse deeper into the tree
+- I didn't add a t.integer :color with the intention of making that randomized on the frontend; let's see if that works out!
 
-* Configuration
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

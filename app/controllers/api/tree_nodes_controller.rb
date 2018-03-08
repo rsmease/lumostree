@@ -1,5 +1,5 @@
-class TreeNodesController < ApplicationController
-    def index
+class Api::TreeNodesController < ApplicationController
+        def index
         @tree_nodes = TreeNode.all
         render 'api/tree_nodes/index'
     end

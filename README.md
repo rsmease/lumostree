@@ -31,7 +31,7 @@
 
 - 20 minutes: setting Rails with preferred gems, database, git, webpack and npm
 - 30 minutes: settng up migrations, models, routes and controllers
-
+- 15 minutes: testing bridge to React frontend
 
 
 

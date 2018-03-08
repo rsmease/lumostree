@@ -19,20 +19,28 @@
 - Rails routes are passed to JBuilder for simple reception by Redux action creators
 - Requests are filtered using strong params to prevent malicious injection
 
-## Omitted Specs
+## React and Redux
 
-- The specs asked for 'a nod toward something that might require careful thought to scale up to tons of concurrent users'
-    - I am reading this as a request for live interaction between multiple users working on the same tree
-    - Websockets are bit much for a one-hour race to the finish line, so I am omitting those for later development
-- The web interface specs request a 'loading' action
-    - I will load all nodes by default; filtering etc. could be something that we build out later
+- Bridge to React created via special ReactBridge controller with static 'root' container
+- Redux implementation features smart components, thunk pattern for REST interaction with action creators
+- Lodash merge() used to avoid mutations of state
+
+## Still Missing
+
+- No styling, no interaction, no way to use create/edit API methods
+- No visual layout to reflect parent-child relationships
 
 ## Labor Distrubtion
 
+### First Hour
 - 20 minutes: setting Rails with preferred gems, database, git, webpack and npm
 - 30 minutes: settng up migrations, models, routes and controllers
-- 15 minutes: testing bridge to React frontend
+- 10 minutes: testing bridge to React frontend
 
+### Second Hour
+- 30 minutes: creation of actions, rest api calls, store, reducers
+- 20 minutes: TreeNodeIndex and container components
+- 10 minutes: deployment to Heroku
 
 
 

@@ -5,7 +5,7 @@ import {
 
 import _ from 'lodash';
 
-export default (action, state = {}) => {
+export default (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_ALL_TREE_NODES:
             return _.merge({}, state, action.treeNodes)

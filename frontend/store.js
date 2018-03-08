@@ -3,6 +3,8 @@ import {
     applyMiddleware
 } from 'redux';
 
+import rootReducer from './reducers/root_reducer';
+
 const thunk = ({
     dispatch,
     getState

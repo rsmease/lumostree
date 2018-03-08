@@ -29,7 +29,4 @@ class TreeNodeIndex extends React.Component {
     }
 }
 
-
-
-
 export default TreeNodeIndex;

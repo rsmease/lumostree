@@ -22,7 +22,7 @@
 ## Omitted Specs
 
 - The specs asked for 'a nod toward something that might require careful thought to scale up to tons of concurrent users'
-    - This reads like the Oracle of Delphi! — I am interpreting it as a desire for live, concurrent editing by multiple users working on the same tree at the same time
+    - I am reading this as a request for live interaction between multiple users working on the same tree
     - Websockets are bit much for a one-hour race to the finish line, so I am omitting those for later development
 - The web interface specs request a 'loading' action
     - I will load all nodes by default; filtering etc. could be something that we build out later

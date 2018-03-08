@@ -11,9 +11,17 @@ import {
     connect
 } from 'react-redux';
 
-const mapStateToProps = (state, ownProps) => ({
-    treeNodes: state.treeNodes
-});
+const mapStateToProps = (state, ownProps) => {
+    let treeNodeKeys = Object.keys(state.treeNodes);
+    let treeNodesArray = []
+    treeNodeKeys.forEach(key => {
+        treeNodesArray.push(state.treeNodes[key]);
+        return;
+    });
+    return {
+        treeNodes: treeNodesArray
+    }
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     requestAllTreeNodes: () => dispatch(requestAllTreeNodes()),

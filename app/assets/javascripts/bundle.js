@@ -18304,8 +18304,14 @@ var _reactRedux = __webpack_require__(41);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+    var treeNodeKeys = Object.keys(state.treeNodes);
+    var treeNodesArray = [];
+    treeNodeKeys.forEach(function (key) {
+        treeNodesArray.push(state.treeNodes[key]);
+        return;
+    });
     return {
-        treeNodes: state.treeNodes
+        treeNodes: treeNodesArray
     };
 };
 
@@ -19292,14 +19298,13 @@ var TreeNodeIndex = function (_React$Component) {
     }, {
         key: 'displayNodes',
         value: function displayNodes() {
-            var _this2 = this;
-
-            if (this.props.treeNodes) {
-                Object.keys(this.props.treeNodes).map(function (treeNodeKey) {
+            console.log(this.props.treeNodes);
+            if (this.props.treeNodes.length) {
+                return this.props.treeNodes.map(function (treeNode) {
                     return _react2.default.createElement(
                         'div',
-                        null,
-                        _this2.props.treeNodes[treeNodeKey].body
+                        { key: treeNode.id },
+                        treeNode.body
                     );
                 });
             } else {
